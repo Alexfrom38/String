@@ -130,7 +130,52 @@ int TString::FindFirstWord(char* _string)
 return -1;   
 
 }
+char** TString::Split(char symbol, int &EmptyCount)
+{
+	int CountOfString = 0;
+	int index = 0;
+	
+	char** Set = nullptr;
+	int low = 0;
 
+	for (int q = 0; q < strlen(string); q++)
+		if (string[q] == symbol) CountOfString++;
+
+	if (CountOfString == 0)
+	{
+		char** Set = new char* [1];
+		Set[0] = string;
+		return Set;
+	}
+
+	Set = new char* [CountOfString++];
+		
+	for (int a = 0; a < strlen(string); a++)
+	{
+		if (string[a] == symbol)
+		{
+			Set[index] = new char[a - low+1];
+			Set[index][a - low] = '\0';
+			for (int i = low; i < a; i++)
+			{
+				Set[index][i-low] = string[i];
+			}
+			low = a+1;
+			index++;
+		}
+	}
+	if (CountOfString > 0)
+	{
+		Set[index] = new char[strlen(string) - low + 1];
+		Set[index][strlen(string) - low] = '\0';
+		for (int i = low; i < strlen(string); i++)
+		{
+			Set[index][i - low] = string[i];
+		}
+	}
+	EmptyCount = CountOfString;
+	return Set;
+}
 
 
 
