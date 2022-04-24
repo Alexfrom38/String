@@ -30,7 +30,6 @@ public:
 	char** Split(char symbol, int &EmptyCount);
 	TString& duplicate(int count);
 
-
 	char* GetString();
 
 
