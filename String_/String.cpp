@@ -177,6 +177,21 @@ char** TString::Split(char symbol, int &EmptyCount)
 	return Set;
 }
 
+TString& TString::dublicate(int count)
+{
+	char* TemporaryString = new char[strlen(string) * count + 1];
+	TemporaryString[strlen(string) * count] = '\0';
+	for (int q = 0; q < strlen(string) * count; q = q+3)
+	{
+		for (int i = 0; i < strlen(string); i++)
+		{
+			TemporaryString[q+i] = string[i];
+		}
+	}
+	delete[] string;
+	string = TemporaryString;
+	return *this;
+}
 
 
 
