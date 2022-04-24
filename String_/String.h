@@ -28,6 +28,7 @@ public:
 	int FindFirstSymb(char symbol);
 	int FindFirstWord(char* _string);
 	char** Split(char symbol, int &EmptyCount);
+	TString& dublicate(int count);
 
 
 	char* GetString();
