@@ -1,39 +1,25 @@
 #include<iostream>
 #include"String.h"
-#include"SetOfStrings.h"
 
 int main()
 {
-	SetOfArray set;
+	
 	char* qw = nullptr;
-	TString A;
-	TString B;
+	TString A; int q = 0;
+	A.SetConstString("abc_def_ghi");
 
-	B.SetConstString("cde");
-	qw = B.GetString();
-	set.AddString(qw);
-	
+	char** Set = nullptr;
+	Set = A.Split('_', q);
 
-	B.SetConstString("cde");
-	qw = B.GetString();
-	set.AddString(qw);
-	//set.Print();
-	//qw = nullptr;
-
-	//qw = set.GetString();
-	//qw = set.GetString();
-
-
-
-
-
-
-
-	A.SetConstString("abc_cde_qra");
-	//std::cout << A.FindFirstWord(qw) << std::endl;
-
-
-	
+	for (int i = 0; i < q; i++)
+	{
+		for (int w = 0; w < strlen(Set[i]); w++)
+		{
+			std::cout << Set[i][w];
+		}
+		std::cout << std::endl;
+	}
 	
 	return 0;
 }
+
